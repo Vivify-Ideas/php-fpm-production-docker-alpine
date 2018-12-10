@@ -2,6 +2,7 @@ FROM php:7.2-fpm-alpine
 
 RUN apk add --update  \
     imagemagick \
+    imagemagick-dev \
     graphicsmagick \
     ghostscript \
     python \
@@ -28,6 +29,9 @@ RUN apk add --update  \
     && docker-php-ext-configure intl \
     # && printf "\n" | pecl install mcrypt-1.0.1 \
     # && docker-php-ext-enable mcrypt \
+    && CFLAGS="$PHP_CFLAGS" CPPFLAGS="$PHP_CPPFLAGS" LDFLAGS="$PHP_LDFLAGS" \
+    pecl install imagick-3.4.3 \
+    && docker-php-ext-enable imagick \
     && docker-php-ext-configure gd \
     --with-freetype-dir=/usr/lib/ \
     --with-png-dir=/usr/lib/ \
@@ -55,13 +59,6 @@ RUN apk add --update  \
     gd \
     opcache
 
-# Install magick
-RUN CFLAGS="$PHP_CFLAGS" CPPFLAGS="$PHP_CPPFLAGS" LDFLAGS="$PHP_LDFLAGS" \
-    && apk add \
-    imagemagick-dev \
-    && docker-php-ext-configure intl \
-    && pecl install imagick-3.4.3 \
-    && docker-php-ext-enable imagick
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
