@@ -1,5 +1,11 @@
 # Docker image for php-fpm in production environment
 
+
+
+![https://github.com/Vivify-Ideas/php-fpm-production-docker-alpine](https://img.shields.io/docker/automated/vivifyideas/php-fpm-production-docker-alpine.svg)
+![https://github.com/Vivify-Ideas/php-fpm-production-docker-alpine](https://img.shields.io/docker/build/vivifyideas/php-fpm-production-docker-alpine.svg?style=popout)
+
+
 Highlights:
 
 - All PHP modules needed for Laravel (or any other PHP framework really)
