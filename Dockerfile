@@ -1,4 +1,4 @@
-FROM php:7.2-fpm-alpine
+FROM php:7.4-fpm-alpine
 
 RUN apk add --update  \
     imagemagick \
@@ -26,6 +26,7 @@ RUN apk add --update  \
     libxslt-dev \
     zlib-dev \
     libpng-dev \
+    libzip-dev \
     && docker-php-ext-configure intl \
     # && printf "\n" | pecl install mcrypt-1.0.1 \
     # && docker-php-ext-enable mcrypt \
@@ -33,9 +34,6 @@ RUN apk add --update  \
     pecl install imagick-3.4.3 \
     && docker-php-ext-enable imagick \
     && docker-php-ext-configure gd \
-    --with-freetype-dir=/usr/lib/ \
-    --with-png-dir=/usr/lib/ \
-    --with-jpeg-dir=/usr/lib/ \
     && docker-php-ext-install \
     bcmath \
     bz2 \
@@ -44,7 +42,6 @@ RUN apk add --update  \
     intl \
     gettext \
     mysqli \
-    hash \
     pcntl \
     pdo_mysql \
     soap \
@@ -54,7 +51,6 @@ RUN apk add --update  \
     sysvsem \
     sysvshm \
     shmop \
-    xsl \
     zip \
     gd \
     opcache
