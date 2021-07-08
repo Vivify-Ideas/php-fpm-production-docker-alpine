@@ -5,7 +5,7 @@ RUN apk add --update  \
     imagemagick-dev \
     graphicsmagick \
     ghostscript \
-    python \
+    python2 \
     unzip \
     # Libraries
     libldap \
@@ -62,4 +62,5 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
 
-RUN composer global require hirak/prestissimo
+### Doesn't need this on Composer V2
+#RUN composer global require hirak/prestissimo
