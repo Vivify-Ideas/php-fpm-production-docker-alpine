@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.3-fpm-alpine
 
 RUN apk add --update  \
     imagemagick \
@@ -61,6 +61,3 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --2 \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
-
-### Doesn't need this on Composer V2
-#RUN composer global require hirak/prestissimo
