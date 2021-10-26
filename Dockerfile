@@ -1,11 +1,11 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.4-fpm-alpine3.13
 
 RUN apk add --update  \
     imagemagick \
     imagemagick-dev \
     graphicsmagick \
     ghostscript \
-    python \
+    python2 \
     unzip \
     # Libraries
     libldap \
@@ -33,7 +33,7 @@ RUN apk add --update  \
     && CFLAGS="$PHP_CFLAGS" CPPFLAGS="$PHP_CPPFLAGS" LDFLAGS="$PHP_LDFLAGS" \
     pecl install imagick-3.4.3 \
     && docker-php-ext-enable imagick \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-webp-dir=/usr/include/  --with-jpeg-dir=/usr/include/ && \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install \
     bcmath \
     bz2 \
@@ -55,10 +55,9 @@ RUN apk add --update  \
     gd \
     opcache
 
-
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php composer-setup.php \
+    && php composer-setup.php --2 \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer
 
