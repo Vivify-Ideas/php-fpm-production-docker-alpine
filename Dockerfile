@@ -52,8 +52,8 @@ RUN apk add --update  \
     sysvshm \
     shmop \
     zip \
-    gd \
-    opcache
+    gd
+#    opcache
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
