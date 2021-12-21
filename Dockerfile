@@ -1,4 +1,4 @@
-FROM php:8.1.1-fpm-alpine
+FROM php:8.0.14-fpm-alpine
 
 RUN apk add --update  \
     imagemagick \
@@ -52,8 +52,8 @@ RUN apk add --update  \
     sysvshm \
     shmop \
     zip \
-    gd
-#    opcache
+    gd \
+    opcache
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
