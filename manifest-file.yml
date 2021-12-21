@@ -1,0 +1,11 @@
+image: vivifyideas/php-fpm-production-docker-alpine:7.4-composer2-ma
+manifests:
+  - image: vivifyideas/php-fpm-production-docker-alpine:7.4-composer2
+    platform:
+      architecture: amd64
+      os: linux
+
+  - image: vivifyideas/php-fpm-production-docker-alpine:7.4-composer2-arm
+    platform:
+      architecture: arm64
+      os: linux

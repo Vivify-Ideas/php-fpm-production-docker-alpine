@@ -1,4 +1,4 @@
-FROM php:7.2-fpm-alpine
+FROM php:8.1.1-fpm-alpine
 
 RUN apk add --update  \
     imagemagick \
