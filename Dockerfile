@@ -31,7 +31,7 @@ RUN apk add --update  \
     # && printf "\n" | pecl install mcrypt-1.0.1 \
     # && docker-php-ext-enable mcrypt \
     && CFLAGS="$PHP_CFLAGS" CPPFLAGS="$PHP_CPPFLAGS" LDFLAGS="$PHP_LDFLAGS" \
-    pecl install imagick-3.4.3 \
+    pecl install imagick-3.5.1 \
     && docker-php-ext-enable imagick \
     && docker-php-ext-configure gd \
     && docker-php-ext-install \
