@@ -46,7 +46,7 @@ RUN apk add --update  \
     pdo_mysql \
     soap \
     sockets \
-    tokenizer \
+#    tokenizer \
     sysvmsg \
     sysvsem \
     sysvshm \
